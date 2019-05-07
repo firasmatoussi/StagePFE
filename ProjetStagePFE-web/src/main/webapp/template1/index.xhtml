@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui"
+	   template="/template1/index.xhtml">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>ESI Manager</title>
+
+	
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet" />
+
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+
+	<link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
+
+	<link type="text/css" rel="stylesheet" href="css/magnific-popup.css" />
+
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+</head>
+
+<body>
+	<!-- Header -->
+	<header id="home">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('./img/internship.jpg');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		<!-- Nav -->
+		<nav id="nav" class="navbar nav-transparent">
+			<div class="container">
+
+				<div class="navbar-header">
+					<!-- Logo -->
+					<div class="navbar-brand">
+						<a href="index.html">
+							<img class="logo" src="img/logo2.png" alt="logo" />
+							<img class="logo-alt" src="img/logo1.png" alt="logo" />
+						</a>
+					</div>
+					<!-- /Logo -->
+
+					<!-- Collapse nav button -->
+					<div class="nav-collapse">
+						<span></span>
+					</div>
+					<!-- /Collapse nav button -->
+				</div>
+
+				<!--  Main navigation  -->
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#portfolio">Internship Offers</a></li>
+					
+					
+					<li class="has-dropdown"><a>Services</a>
+						<ul class="dropdown">
+							<li><a href="ConventionForm.jsf">Convention Form</a></li>
+							<li><a href="EspPlug.jsf">ESP Plug</a></li>
+						</ul>
+					</li>
+					<li><a for="usern" href="#contact">Sign in</a></li>
+				</ul>
+				<!-- /Main navigation -->
+
+			</div>
+		</nav>
+		<!-- /Nav -->
+
+		<!-- home wrapper -->
+		<div class="home-wrapper">
+			<div class="container">
+				<div class="row">
+
+					<!-- home content -->
+					<div class="col-md-10 col-md-offset-1">
+						<div class="home-content">
+							<h1 class="white-text">Welcome to ESI Manager</h1>
+							<p class="white-text">ESI Manager is for any final year student whishing to be fully implied with his end of studies project and its hole process
+							</p>
+							
+						</div>
+					</div>
+					<!-- /home content -->
+
+				</div>
+			</div>
+		</div>
+		<!-- /home wrapper -->
+
+	</header>
+	<!-- /Header -->
+
+	<!-- About -->
+	<div id="about" class="section md-padding">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Welcome to Website</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- about -->
+				<div class="col-md-4">
+					<div class="about">
+						<i class="fa fa-cogs"></i>
+						<h3>Fully Customizible</h3>
+						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+						<a href="#">Read more</a>
+					</div>
+				</div>
+				<!-- /about -->
+
+				<!-- about -->
+				<div class="col-md-4">
+					<div class="about">
+						<i class="fa fa-magic"></i>
+						<h3>Awesome Features</h3>
+						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+						<a href="#">Read more</a>
+					</div>
+				</div>
+				<!-- /about -->
+
+				<!-- about -->
+				<div class="col-md-4">
+					<div class="about">
+						<i class="fa fa-mobile"></i>
+						<h3>Fully Responsive</h3>
+						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+						<a href="#">Read more</a>
+					</div>
+				</div>
+				<!-- /about -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /About -->
+
+
+	<!-- Portfolio -->
+	<div id="portfolio" class="section md-padding bg-grey">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section header -->
+				<div class="section-header text-center">
+					<h2 class="title">Featured Works</h2>
+				</div>
+				<!-- /Section header -->
+
+				<!-- Work -->
+				
+		<center><h2><h:outputText value="Offers"/></h2></center>
+    <h:form id="FicheForm">
+        <h:dataTable id="offersTable" binding="#{table}" value="#{FicheBean.Display()}" var="offers" border="1">
+           
+            <h:column>
+                <f:facet name="header">Entreprise Name</f:facet>
+                <h:outputText value="#{offers.nom}" /> 
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                <h:outputText value="#{offers.description}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Categorie</f:facet>
+                <h:outputText value="#{offers.cat}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Logo</f:facet>
+                <h:outputText value="#{offers.logo}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Periode</f:facet>
+                <h:outputText value="#{offers.periode}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Date</f:facet>
+                <h:outputText value="#{offers.date}" />
+            </h:column>
+            
+            
+        </h:dataTable>
+        </h:form>
+        
+        <ui:define name="Topnavs">
+<div class="logo">
+        <a href="" class="simple-text logo-normal">
+          ESI Manager
+        </a>
+    </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+        <ui:insert name="title"></ui:insert>
+          <li class="nav-item active  ">
+            <a class="nav-link" href="./Enseignant.jsf" >
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./Teacher.jsf">
+              <i class="material-icons">content_paste</i>
+              <p>Teacher</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./HeadOfDepartement.jsf">
+              <i class="material-icons">library_books</i>
+              <p>Head of Departement</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./InternshipDirector.jsf">
+              <i class="material-icons">bubble_chart</i>
+              <p>internship director</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+</ui:define>	
+       
+    
+				
+				
+				
+				<div class="col-md-4 col-xs-6 work">
+				<!-- Logo -->
+					<img class="img-responsive" src="./img/work1.jpg" alt="" />
+				<!-- Logo -->
+					<div class="work-content" value="{#{FicheBean.Display()}">
+						<span>Category</span>
+						<h3>Lorem ipsum dolor</h3>
+						<div class="work-link">
+							<a href="#"><i class="fa fa-external-link"></i></a>
+							<a class="lightbox" href="./img/work1.jpg"><i class="fa fa-search"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- /Work -->
+				
+				
+				
+				
+				
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Portfolio -->
+
+	
+
+
+	
+
+
+	<!-- Numbers -->
+	<div id="numbers" class="section sm-padding">
+
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('./img/background2.jpg');">
+			<div class="overlay"></div>
+		</div>
+		<!-- /Background Image -->
+
+		
+
+	</div>
+	<!-- /Numbers -->
+
+	
+
+
+
+
+
+
+
+
+	<!-- Contact -->
+	<div id="contact" class="section md-padding">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section-header -->
+				<div class="section-header text-center">
+					<h2 class="title">Sign in</h2>
+				</div>
+				<!-- /Section-header -->
+
+				<!-- contact form -->
+				<div class="col-md-8 col-md-offset-2">
+					<h:form class="contact-form" id="form">
+						<h:inputText class="input" placeholder="Email" value="#{ficheBean.login}"/>
+						
+						<h:inputSecret class="input" placeholder="Password" value="#{ficheBean.password}"/>
+						<a href="#" style="color:black;"> Forget password?</a>
+						<br />
+						<h:commandButton class="btn btn-warning" action="#{FicheBean.doLogin()}" value="Login"/>
+					</h:form>
+				</div>
+				<!-- /contact form -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Contact -->
+	
+	
+	<!-- Contact -->
+	<div id="signup" class="section md-padding">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<!-- Section-header -->
+				<div class="section-header text-center">
+					<h2 class="title">Sign up</h2>
+				</div>
+				<!-- /Section-header -->
+
+				<!-- contact form -->
+				<div class="col-md-8 col-md-offset-2">
+					<form class="contact-form">
+					
+						<input type="text" class="input" placeholder="Email" />
+						
+						<button class="btn btn-warning">Sign up</button>
+						
+						
+					</form>
+				</div>
+				<!-- /contact form -->
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</div>
+	<!-- /Contact -->
+
+
+
+	<!-- Footer -->
+	<footer id="footer" class="sm-padding bg-dark">
+
+		<!-- Container -->
+		<div class="container">
+
+			<!-- Row -->
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<!-- footer logo -->
+					<div class="footer-logo">
+						<a href="index.html"><img src="img/logo1.png" alt="logo" /></a>
+					</div>
+					<!-- /footer logo -->
+
+					<!-- footer follow -->
+					<ul class="footer-follow">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+					</ul>
+					<!-- /footer follow -->
+
+					<!-- footer copyright -->
+					<div class="footer-copyright">
+						<p>Copyright © 2019. All Rights Reserved. Designed by <a target="_blank">Dev-Clan</a></p>
+					</div>
+					<!-- /footer copyright -->
+
+				</div>
+
+			</div>
+			<!-- /Row -->
+
+		</div>
+		<!-- /Container -->
+
+	</footer>
+	<!-- /Footer -->
+
+	<!-- Back to top -->
+	<div id="back-to-top"></div>
+	<!-- /Back to top -->
+
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+
+	<!-- jQuery Plugins -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.magnific-popup.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+</body>
+
+</html>

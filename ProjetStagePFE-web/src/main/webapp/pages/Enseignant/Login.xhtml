@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui"
+	   template="/template/EnseignantTemplate.xhtml">
+	   
+ 
+
+
+
+
+<ui:define name="content">
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Sign In</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">         
+    			<center>               
+				    <h:form>
+				    <h:panelGrid columns="2" cellpadding="10">
+				    
+				        <p:outputLabel value="Email" />
+				        <p:inputText value="#{FicheBean.login}"/>
+				    
+				        <p:outputLabel  value="Password" />
+				        <p:password value="#{FicheBean.password}"/>
+				        </h:panelGrid>
+				        
+				        <p:commandButton value="Log In" class="btn-warning" action="#{FicheBean.doLogin1()}"/>
+            <h:outputText value="#{basicView.text}" />
+				    </h:form>
+				</center>
+                  </div>
+                </div>
+                
+                <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Sign Up</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+           
+    <center>               
+    <h:form>
+    <h:panelGrid columns="2" cellpadding="10">
+    
+        <p:outputLabel value="Email" />
+        <p:inputText value="#{FicheBean.register}"/>
+        </h:panelGrid>
+        
+        <p:commandButton class="btn-warning" value="Sign Up" action="#{FicheBean.registration()}"/>
+            <h:outputText value="#{basicView.text}" />
+        </h:form>
+        </center>
+ 
+                
+                  </div>
+                </div>
+              </div>
+                
+                
+                
+              </div>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+     
+</ui:define>
+</ui:composition>

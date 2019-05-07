@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui">
+
+	<!-- 
+		Replace path to template, title, header and body
+		with actual data.
+	 -->
+	<h:head>
+	<title><ui:insert name="title"></ui:insert></title>
+	<ui:include src="/template/EnseignantHeader.xhtml" />
+	
+	</h:head>
+	<h:body class="">
+	<div class="wrapper ">
+	<div class="sidebar" data-color="purple" data-background-color="white" data-image="#{request.contextPath}/assets1/img/sidebar-1.jpg">
+    <ui:insert name="Topnavs" ></ui:insert>
+    </div>
+    <div class="main-panel">
+	<ui:include src="/template/EnseignantNavs.xhtml" />
+	<ui:insert name="content"></ui:insert>
+	<ui:include src="/template/EnseignantFooter.xhtml"/>
+	</div>
+	</div>
+	<ui:include src="/template/EnseignantSearchBars.xhtml"/>
+  	<ui:include src="/template/EnseignantScripts.xhtml"/>
+  
+	</h:body>
+
+</html>

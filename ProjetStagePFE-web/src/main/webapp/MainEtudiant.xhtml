@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>ESI Manager</title>
+
+	
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet" />
+
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+
+	<link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
+
+	<link type="text/css" rel="stylesheet" href="css/magnific-popup.css" />
+
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+</head>
+
+
+<body>
+ <center><h2><h:outputText value="Offers"/></h2></center>
+    <h:form id="FicheForm">
+        <h:dataTable id="offersTable" binding="#{table}" value="#{FicheBean.Display()}" var="offers" border="1"  captionclass="table table-striped table-hover table-bordered tableUpdated">
+           
+            <h:column>
+                <f:facet name="header">Entreprise Name</f:facet>
+                <h:outputText value="#{offers.nom}" /> 
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                <h:outputText value="#{offers.description}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Categorie</f:facet>
+                <h:outputText value="#{offers.cat}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Logo</f:facet>
+                <h:outputText value="#{offers.logo}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Periode</f:facet>
+                <h:outputText value="#{offers.periode}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Date</f:facet>
+                <h:outputText value="#{offers.date}" />
+            </h:column>
+            
+            
+        </h:dataTable>
+        </h:form>
+</body>
+
+</html>
+

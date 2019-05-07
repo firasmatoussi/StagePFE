@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui"
+	   template="/template/EnseignantTemplate.xhtml">
+	   
+<ui:define name="title">Student</ui:define>	   
+<ui:define name="Broad">   <a class="navbar-brand" href="#pablo">Student : #{FicheBean.s.username}</a> </ui:define>	
+<ui:define name="Topnavs">
+<div class="logo">
+        <a href="" class="simple-text logo-normal">
+          ESI Manager
+        </a>
+    </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+        <ui:insert name="title"></ui:insert>
+          <li class="nav-item ">
+            <a class="nav-link" href="./Enseignant.jsf" >
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item active  ">
+            <a class="nav-link" href="./Student.jsf">
+              <i class="material-icons">content_paste</i>
+              <p>Offers</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./ConventionForm.jsf">
+              <i class="material-icons">library_books</i>
+              <p>Convention Form</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./Plug.jsf">
+              <i class="material-icons">bubble_chart</i>
+              <p>ESP Plug</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+</ui:define>	 
+
+
+
+
+<ui:define name="content">
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Offers</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                  
+                  <h:form id="form10">
+        <h:panelGrid columns="4" cellpadding="10">
+                  
+        <p:outputLabel  value="Category" />
+		<h:selectOneMenu value="#{FicheBean.cate}" id="cater"  class="custom-select" >
+			<f:selectItems value="#{FicheBean.categoriefiche()}" var="categorie">
+				</f:selectItems>
+		</h:selectOneMenu>
+		
+                 <p:commandButton value="Filter" action="#{FicheBean.Display()}" style="margin-right:20px;" ajax="false" />
+                
+              
+          </h:panelGrid> 
+           </h:form>   
+              
+    <p:accordionPanel multiple="true" style="color:red;" value="#{FicheBean.Display()}" var="offers">
+        <p:tab title="#{offers.nom}">
+        	
+            <h:panelGrid columns="2" cellpadding="10">
+                <p:graphicImage height="100px" width="200px" value="/resources/#{offers.logo}.png"  />
+            	<br></br>
+            	<h:outputText value="Category :"/>
+            	<h:outputText value="#{offers.cat}"/>
+            	
+            	
+            	<h:outputText value="Description :"/>
+            	<h:outputText value="#{offers.description}"/>
+            	
+            	<h:outputText value="Periode :"/>
+            	 <h:outputText value="#{offers.periode}"/>
+            	 
+            	<h:outputText value="Added :"/>
+                <h:outputText value="#{offers.date}"/>
+               
+                <h:form>
+                <p:fileUpload value="#{FicheBean.file}" mode="simple" skinSimple="true"/>
+    
+                 <p:commandButton value="Send Your CV" action="#{FicheBean.upload()}" style="margin-right:20px;" ajax="false" />
+                 </h:form>
+                 
+               
+            </h:panelGrid>
+        </p:tab>
+        
+        
+    </p:accordionPanel>
+    
+    
+   
+    
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+     
+</ui:define>
+</ui:composition>

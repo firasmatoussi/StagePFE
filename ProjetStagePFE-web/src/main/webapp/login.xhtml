@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui">
+	   
+<h:head>
+	<title>LOGIN</title>
+</h:head>
+<h:body>
+	<h2>Todos</h2>
+	<h:form id="form">
+		<h:panelGrid columns="2">
+			<h:outputText value="login" />
+			<h:inputText value="#{userBean.username}" />
+			<h:outputText value="password" />
+			<h:inputText value="#{userBean.password}" />
+			<h:commandButton id ="btn" action="#{userBean.doLogin()}" value="login" />
+			<h:message for="btn"/>
+		</h:panelGrid>
+	</h:form>
+	
+</h:body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	   xmlns:f="http://xmlns.jcp.org/jsf/core"
+	   xmlns:h="http://xmlns.jcp.org/jsf/html"
+	   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	   xmlns:jsf="http://xmlns.jcp.org/jsf"
+	   xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	   xmlns:p="http://primefaces.org/ui"
+	   template="/template/EnseignantTemplate.xhtml">
+	   
+<ui:define name="title">Student</ui:define>	   
+<ui:define name="Broad">   <a class="navbar-brand" href="#pablo">Student</a> </ui:define>	
+<ui:define name="Topnavs">
+<div class="logo">
+        <a href="" class="simple-text logo-normal">
+          ESI Manager
+        </a>
+    </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+        <ui:insert name="title"></ui:insert>
+          <li class="nav-item ">
+            <a class="nav-link" href="./Enseignant.jsf" >
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item active  ">
+            <a class="nav-link" href="./Student.jsf">
+              <i class="material-icons">content_paste</i>
+              <p>Offers</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./ConventionForm.jsf">
+              <i class="material-icons">library_books</i>
+              <p>Convention Form</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="./Plug.jsf">
+              <i class="material-icons">bubble_chart</i>
+              <p>ESP Plug</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+</ui:define>	 
+
+
+
+
+<ui:define name="content">
+<div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">Your end of study project plug</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                 
+                 
+     <h:form id="form">
+    <p:repeat value="#{FicheBean.afficherfiche()}" var="f">
+        <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+            
+ 
+            <p:outputPanel>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputText value="Title:" />
+                    <h:outputText value="#{f.titre}" style="font-weight: bold"/>
+ 
+                    <h:outputText value="Description:" />
+                    <h:outputText value="#{f.description}" style="font-weight: bold"/>
+ 
+                    <h:outputText value="Functionality:" />
+                    <h:outputText value="#{f.fonctionnalite}" style="font-weight: bold"/>
+                    
+                    <h:outputText value="Problematic:" />
+                    <h:outputText value="#{f.problematique}" style="font-weight: bold"/>
+                    
+                    <h:outputText value="Keywords:" />
+                    <h:outputText value="#{f.motsCle}" style="font-weight: bold"/>
+                    
+                    <h:outputText value="Category:" />
+                    <h:outputText value="#{f.categories.nom}" style="font-weight: bold"/>
+                    
+                    
+                    
+                    
+                    
+                </h:panelGrid>
+            </p:outputPanel>
+        </h:panelGrid>
+        <hr />
+    </p:repeat>
+ 
+</h:form>
+    
+    
+   
+    
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+            </div>
+          </div>
+        </div>
+     
+</ui:define>
+</ui:composition>
